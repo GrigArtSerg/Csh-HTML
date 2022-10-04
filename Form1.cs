@@ -85,9 +85,10 @@ namespace HTMLTest_3
             HtmlElement ElementOut = Doc.GetElementById("Ans");
             if (IsPossible(Money, Values, Capacity))
             {
-                //ElementOut.SetAttribute("value", "Возможно");
-
-                ElementOut.SetAttribute("value", MakeOutString(HowToIssue(Money, Values, Capacity, Numbers), Values));
+                int[,] Issue = HowToIssue(Money, Values, Capacity, Numbers);
+                
+                if (Issue != null) ElementOut.SetAttribute("value", MakeOutString(Issue, Values));
+                else ElementOut.SetAttribute("value", "Невозможно выдать такую сумму");
             }
             else ElementOut.SetAttribute("value", "Невозможно выдать такую сумму");
 
@@ -174,6 +175,7 @@ namespace HTMLTest_3
                     }
                 }
             }
+            if (Money > 0) Issue = null;
             return Issue;
         }
 
