@@ -1,0 +1,200 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Тестовое Телематика (Hi, Rockits!)</title>
+ </head>
+
+ <body>
+    <style>
+        form.my_boks01,form.my_boks02,form.my_boks03,form.my_boks04,
+        form.my_boks05,form.my_boks06,form.my_boks07,form.my_boks08 {
+            margin: 5px 5px;
+            padding: 0px 10px;
+            display: inline-block;
+            border: 1px solid #999;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+    </style>
+        
+<!-- количество касссет от 1 до 8 -->
+ <form >
+  <p><b>Количество кассет: </b>
+   <input id="Count" type="text" size = "10" min = "1" max = "8" list = "количество" required>
+  </p>
+  <datalist id = "количество">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+   <option>4</option>
+   <option>5</option>
+   <option>6</option>
+   <option>7</option>
+   <option>8</option>
+  </datalist>
+ </form>
+ 
+<!-- номинал каждой кассет 100/200/500/1000/2000/5000 -->
+<p><b>Номинал  кассет: </b>
+ <form class = "my_boks01" href = "#">
+    <p>Номинал кассеты 1:
+      <input id = "Val 1" type="text" size = "10" min = "100" max = "5000" list = "номиналы" required>
+    </p>
+ </form>
+
+ <form class = "my_boks02" href = "#">
+    <p>Номинал кассеты 2:
+      <input id = "Val 2" type="text" size = "10" min = "100" max = "5000" list = "номиналы">
+    </p>
+ </form>
+
+ <form class = "my_boks03" href = "#">
+    <p>Номинал кассеты 3:
+      <input id = "Val 3" type="text" size = "10" min = "100" max = "5000" list = "номиналы">
+    </p>
+ </form>
+  
+ <form class = "my_boks04" href = "#">
+      <p>Номинал кассеты 4:
+        <input id = "Val 4" type="text" size = "10" min = "100" max = "5000" list = "номиналы">        
+       </p>
+ </form>
+
+ <form class = "my_boks05" href = "#">
+    <p>Номинал кассеты 5:
+      <input id = "Val 5" type="text" size = "10" min = "100" max = "5000" list = "номиналы">          
+     </p>
+   </form>
+  
+   <form class = "my_boks06" href = "#">
+      <p>Номинал кассеты 6:
+        <input id = "Val 6" type="text" size = "10" min = "100" max = "5000" list = "номиналы">
+      </p>
+   </form>
+  
+   <form class = "my_boks07" href = "#">
+      <p>Номинал кассеты 7:
+        <input id = "Val 8" type="text" size = "10" min = "100" max = "5000" list = "номиналы">
+      </p>
+   </form>
+    
+   <form class = "my_boks08" href = "#">
+        <p>Номинал кассеты 8:
+          <input id = "Val 8" type="text" size = "10" min = "100" max = "5000" list = "номиналы">
+         </p>
+   </form>
+   <datalist id="номиналы">
+      <option>100</option>
+      <option>200</option>
+      <option>500</option>
+      <option>1000</option>
+      <option>2000</option>
+      <option>5000</option>
+   </datalist>
+</p> <br>
+
+<!-- сколько купюр осталось в кассете -->
+<p><b>Остаток купюр в кассетах</b>
+ <form class = "my_boks01" href = "#">
+    <p>Остаток в кассете 1: 
+         <input id = "Capacity 1" type="text" size = "10" min = "0" required> </p>
+ </form>
+
+ <form class = "my_boks02" href = "#">
+    <p>Остаток в кассете 2: 
+         <input id = "Capacity 2" type="text" size = "10" min = "0"></p>
+ </form>
+
+ <form class = "my_boks03" href = "#">
+    <p>Остаток в кассете 3: 
+         <input id = "Capacity 3" type="text" size = "10" min = "0"></p>
+ </form>
+
+ <form class = "my_boks04" href = "#">
+    <p>Остаток в кассете 4: 
+         <input id = "Capacity 4" type="text" size = "10" min = "0"></p>
+ </form>
+
+ <form class = "my_boks05" href = "#">
+    <p>Остаток в кассете 5: 
+         <input id = "Capacity 5" type="text" size = "10" min = "0"> </p>
+ </form>
+
+ <form class = "my_boks06" href = "#">
+    <p>Остаток в кассете 6: 
+         <input id = "Capacity 6" type="text" size = "10" min = "0"></p>
+ </form>
+
+ <form class = "my_boks07" href = "#">
+    <p>Остаток в кассете 7: 
+         <input id = "Capacity 7" type="text" size = "10" min = "0"></p>
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <p>Остаток в кассете 8: 
+         <input id = "Capacity 8" type="text" size = "10" min = "0"></p>
+ </form>
+</p> <br>
+
+<!-- исправна ли кассета -->
+<p><b>Исправность кассет </b>
+ <form class = "my_boks08" href = "#">
+   <input id = "IsWorking 1" type="checkbox" checked> 1 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <input id = "IsWorking 2" type="checkbox" checked> 2 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <input id = "IsWorking 3" type="checkbox" checked> 3 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <input id = "IsWorking 4" type="checkbox" checked> 4 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+   <input id = "IsWorking 5" type="checkbox" checked> 5 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <input id = "IsWorking 6" type="checkbox" checked> 6 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <input id = "IsWorking 7" type="checkbox" checked> 7 Исправна
+ </form>
+
+ <form class = "my_boks08" href = "#">
+    <input id = "IsWorking 8" type="checkbox" checked> 8 Исправна
+ </form>
+</p>
+
+<!-- Поле для ввода  -->
+<form >
+    <p><b>Ввод суммы для анализа: </b>
+    <input id = "Money" type="text" size = "10" required>
+    </p>
+</form>
+
+<!-- Поле для ответа -->
+<form>
+    <p><b>Ответ:</b>
+    <input id = "Ans" type = "text" size = "100" readonly></p>
+</form>
+
+<!-- Поле для длительности -->
+<form>
+   <p><b>Продолжительность: </b>
+      <input id = "Time" type = "text" size = 20 readonly>
+   </p>
+</form>
+
+<!-- кнопка для запуска скрипта на # -->
+ <button id = "Start">Отправить запрос</button>  
+
+ <!-- <script src="/GetValues.js"></script> -->
+
+ </body>
+</html>

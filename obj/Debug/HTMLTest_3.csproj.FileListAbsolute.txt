@@ -1,0 +1,10 @@
+F:\Programming\HTMLTest_3\bin\Debug\HTMLTest_3.exe.config
+F:\Programming\HTMLTest_3\bin\Debug\HTMLTest_3.exe
+F:\Programming\HTMLTest_3\bin\Debug\HTMLTest_3.pdb
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.csproj.AssemblyReference.cache
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.Form1.resources
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.Properties.Resources.resources
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.csproj.GenerateResource.cache
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.csproj.CoreCompileInputs.cache
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.exe
+F:\Programming\HTMLTest_3\obj\Debug\HTMLTest_3.pdb
