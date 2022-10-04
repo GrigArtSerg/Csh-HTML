@@ -19,6 +19,7 @@ namespace HTMLTest_3
         public Form1()
         {
             InitializeComponent();
+            // если загрузка по URL не произошла, то отображаем форму по лоакльному расположению
             if (WB.Document == null)
             {
                 WB.Navigate(System.IO.Directory.GetCurrentDirectory() + @"\Тестовое Телематика (Hi, Rockits!).html");
@@ -28,8 +29,9 @@ namespace HTMLTest_3
         private void WB_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             HtmlDocument Doc = WB.Document;
-            HtmlElement StartBtn = Doc.GetElementById("Start"); 
+            HtmlElement StartBtn = Doc.GetElementById("Start");
 
+            // ожидаем события нажатия на кнопку на html-форме
             if (StartBtn != null)
             {
                 StartBtn.AttachEventHandler("onclick", new EventHandler(CalculationStart));
@@ -41,7 +43,6 @@ namespace HTMLTest_3
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            //FileStream fs = new FileStream("BankPage.html", FileMode.Open);
             HtmlDocument Doc = WB.Document;
 
             int Money = GetMoney(Doc);
@@ -83,18 +84,6 @@ namespace HTMLTest_3
                 Out += $"{Convert.ToString(Issue[0,i])} из кассеты {Convert.ToString(Issue[1, i])}({Convert.ToString(Values[i])}-х) ";
             }
             return Out;
-        }
-
-        /// <summary>
-        /// Вычисление продолжительности работы
-        /// </summary>
-        /// <param name="begin"></param>
-        /// <param name="end"></param>
-        /// <returns></returns>
-        static double Duration(DateTime begin, DateTime end)
-        {
-            TimeSpan Duration = new TimeSpan(end.Ticks-begin.Ticks);
-            return Duration.TotalMilliseconds;
         }
 
         /// <summary>
