@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime;
-using System.Threading;
+using System.Diagnostics;
+
 
 namespace HTMLTest_3
 {
@@ -37,7 +38,9 @@ namespace HTMLTest_3
 
         private void CalculationStart(object sender, EventArgs e)
         {
-            DateTime begin = DateTime.Now;
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
             //FileStream fs = new FileStream("BankPage.html", FileMode.Open);
             HtmlDocument Doc = WB.Document;
 
@@ -59,10 +62,9 @@ namespace HTMLTest_3
             }
             else ElementOut.SetAttribute("value", "Невозможно выдать такую сумму");
 
-
-            DateTime end = DateTime.Now;
+            timer.Stop();
             ElementOut = Doc.GetElementById("Time");
-            ElementOut.SetAttribute("value", Convert.ToString(Duration(begin, end)));
+            ElementOut.SetAttribute("value", Convert.ToString(timer.ElapsedMilliseconds));
         }
 
         /// <summary>
