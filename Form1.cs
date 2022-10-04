@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime;
-using System.Threading;
+using System.Diagnostics;
+
 
 namespace HTMLTest_3
 {
@@ -24,39 +25,6 @@ namespace HTMLTest_3
             }
         }
 
-        private string PrintDom(HtmlElementCollection elemColl, System.Text.StringBuilder returnStr, Int32 depth)
-        {
-            System.Text.StringBuilder str = new System.Text.StringBuilder();
-
-            foreach (HtmlElement elem in elemColl)
-            {
-                string elemName;
-
-                elemName = elem.GetAttribute("ID");
-                if (elemName == null || elemName.Length == 0)
-                {
-                    elemName = elem.GetAttribute("name");
-                    if (elemName == null || elemName.Length == 0)
-                    {
-                        elemName = "<no name>";
-                    }
-                }
-
-                str.Append(' ', depth * 4);
-                str.Append(elemName + ": " + elem.TagName + "(Level " + depth + ")");
-                returnStr.AppendLine(str.ToString());
-
-                if (elem.CanHaveChildren)
-                {
-                    PrintDom(elem.Children, returnStr, depth + 1);
-                }
-
-                str.Remove(0, str.Length);
-            }
-
-            return (returnStr.ToString());
-        }
-
         private void WB_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             HtmlDocument Doc = WB.Document;
@@ -70,7 +38,9 @@ namespace HTMLTest_3
 
         private void CalculationStart(object sender, EventArgs e)
         {
-            DateTime begin = DateTime.Now;
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
             //FileStream fs = new FileStream("BankPage.html", FileMode.Open);
             HtmlDocument Doc = WB.Document;
 
@@ -85,16 +55,16 @@ namespace HTMLTest_3
             HtmlElement ElementOut = Doc.GetElementById("Ans");
             if (IsPossible(Money, Values, Capacity))
             {
-                //ElementOut.SetAttribute("value", "Возможно");
-
-                ElementOut.SetAttribute("value", MakeOutString(HowToIssue(Money, Values, Capacity, Numbers), Values));
+                int[,] Issue = HowToIssue(Money, Values, Capacity, Numbers);
+                
+                if (Issue != null) ElementOut.SetAttribute("value", MakeOutString(Issue, Values));
+                else ElementOut.SetAttribute("value", "Невозможно выдать такую сумму");
             }
             else ElementOut.SetAttribute("value", "Невозможно выдать такую сумму");
 
-
-            DateTime end = DateTime.Now;
+            timer.Stop();
             ElementOut = Doc.GetElementById("Time");
-            ElementOut.SetAttribute("value", Convert.ToString(Duration(begin, end)));
+            ElementOut.SetAttribute("value", Convert.ToString(timer.ElapsedMilliseconds));
         }
 
         /// <summary>
@@ -174,6 +144,7 @@ namespace HTMLTest_3
                     }
                 }
             }
+            if (Money > 0) Issue = null;
             return Issue;
         }
 
